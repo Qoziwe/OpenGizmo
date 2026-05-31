@@ -85,6 +85,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     minHeight: 48, // Минимальная высота кнопки для удобства нажатия
   },
+  buttonText: {
+    fontSize: fontSizes.md,
+    fontWeight: '600',
+  },
   // Стили для основного варианта кнопки (primary).
   primaryButton: {
     backgroundColor: colors.accent,

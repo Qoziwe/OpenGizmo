@@ -156,7 +156,7 @@ export default function CreateDeckScreen() {
           keyboardShouldPersistTaps="handled"
         >
           {/* Заголовок экрана */}
-          <Text style={styles.title}><OpenGizmo></OpenGizmo></Text>
+          <Text style={styles.title}>OpenGizmo</Text>
           <Text style={styles.subtitle}>
             Создай карточки из любого материала
           </Text>
@@ -214,7 +214,7 @@ export default function CreateDeckScreen() {
       {/* Оверлей загрузки */}
       {loading && (
         <View style={styles.loadingOverlay}>
-          <ActivityIndicator size="large" color={colors.primary} />
+          <ActivityIndicator size="large" color={colors.accent} />
           <Text style={styles.loadingText}>Создаем карточки...</Text>
         </View>
       )}
@@ -331,6 +331,6 @@ const styles = StyleSheet.create({
     marginTop: spacing.md,
     fontSize: fontSizes.lg,
     fontWeight: '600',
-    color: colors.primary,
+    color: colors.accent,
   },
 });

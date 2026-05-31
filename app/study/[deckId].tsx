@@ -138,7 +138,7 @@ export default function StudyDeckScreen() {
 
   // Переход на главный экран.
   const handleGoHome = () => {
-    router.replace("/(tabs)/index");
+    router.replace("/");
   };
 
   return (

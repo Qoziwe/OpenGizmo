@@ -53,12 +53,6 @@ export default function RootLayout() {
           screenOptions={{
             headerShown: false, // Отключаем стандартный заголовок
             contentStyle: { backgroundColor: colors.background }, // Цвет фона всех экранов
-            // Отключаем pointerEvents в веб-сборке, если это вызывает проблемы с кликами.
-            // Это может быть обходным решением для некоторых багов react-native-web/gesture-handler на вебе.
-            // https://github.com/software-mansion/react-native-gesture-handler/issues/1126
-            // https://github.com/necolas/react-native-web/issues/1979
-            // @ts-ignore: `pointerEvents` is not a valid style prop for `contentStyle`
-            contentContainerStyle: Platform.OS === 'web' ? { pointerEvents: 'auto' } : undefined,
           }}
         />
         {/* Настройка StatusBar: светлый текст на темном фоне для лучшей читаемости */}
