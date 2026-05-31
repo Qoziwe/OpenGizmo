@@ -12,6 +12,7 @@
       "supportsTablet": true
     },
     "android": {},
+    "baseUrl": "/OpenGizmo",
     "web": {
       "bundler": "metro",
       "output": "static"
