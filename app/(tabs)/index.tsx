@@ -156,7 +156,7 @@ export default function CreateDeckScreen() {
           keyboardShouldPersistTaps="handled"
         >
           {/* Заголовок экрана */}
-          <Text style={styles.title}>FlashAI</Text>
+          <Text style={styles.title}><OpenGizmo></OpenGizmo></Text>
           <Text style={styles.subtitle}>
             Создай карточки из любого материала
           </Text>

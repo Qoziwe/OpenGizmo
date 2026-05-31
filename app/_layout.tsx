@@ -14,6 +14,7 @@ import {
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { colors } from '../constants/theme';
 
 // Запрет автоматического скрытия SplashScreen до загрузки шрифтов.
@@ -45,17 +46,25 @@ export default function RootLayout() {
   }
 
   return (
-    <View style={styles.container}>
-      {/* Настройка Stack Navigator для всего приложения */}
-      <Stack
-        screenOptions={{
-          headerShown: false, // Отключаем стандартный заголовок
-          contentStyle: { backgroundColor: colors.background }, // Цвет фона всех экранов
-        }}
-      />
-      {/* Настройка StatusBar: светлый текст на темном фоне для лучшей читаемости */}
-      <StatusBar style="dark" />
-    </View>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        {/* Настройка Stack Navigator для всего приложения */}
+        <Stack
+          screenOptions={{
+            headerShown: false, // Отключаем стандартный заголовок
+            contentStyle: { backgroundColor: colors.background }, // Цвет фона всех экранов
+            // Отключаем pointerEvents в веб-сборке, если это вызывает проблемы с кликами.
+            // Это может быть обходным решением для некоторых багов react-native-web/gesture-handler на вебе.
+            // https://github.com/software-mansion/react-native-gesture-handler/issues/1126
+            // https://github.com/necolas/react-native-web/issues/1979
+            // @ts-ignore: `pointerEvents` is not a valid style prop for `contentStyle`
+            contentContainerStyle: Platform.OS === 'web' ? { pointerEvents: 'auto' } : undefined,
+          }}
+        />
+        {/* Настройка StatusBar: светлый текст на темном фоне для лучшей читаемости */}
+        <StatusBar style="dark" />
+      </View>
+    </GestureHandlerRootView>
   );
 }
 
